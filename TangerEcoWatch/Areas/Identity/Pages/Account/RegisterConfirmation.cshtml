@@ -1,0 +1,82 @@
+﻿@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "Register confirmation";
+}
+<!-- Favicon -->
+<link rel="icon" href="~/img/core-img/favicon.ico">
+
+<!-- Core Stylesheet -->
+<link rel="stylesheet" href="~/style.css">
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="preloader-circle"></div>
+        <div class="preloader-img">
+            <img src="~/img/core-img/leaf.png" alt="">
+        </div>
+    </div>
+
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area">
+        <!-- Top Breadcrumb Area -->
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image:url('@Url.Content("~/img/bg-img/clean.jpg")');">
+            <h2>REGISTER CONFIRMATION</h2>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Account</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Register confirmation</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="contact-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-2">
+                    <section>
+                        <h1>@ViewData["Title"]</h1>
+                        @{
+                            if (@Model.DisplayConfirmAccountLink)
+                            {
+                                <div>
+                                    <p>
+                                        This app does not currently have a real email sender registered, see <a href="https://aka.ms/aspaccountconf">these docs</a> for how to configure a real email sender.
+                                        Normally this would be emailed: <a id="confirm-link" href="@Model.EmailConfirmationUrl">Click here to confirm your account</a>
+                                    </p>
+                                </div>
+                            }
+                            else
+                            {
+                                <div>
+                                    <p>
+                                            Please check your email to confirm your account.
+                                    </p>
+                                </div>
+                            }
+                        }
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### All Javascript Files ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="~/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="~/js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="~/js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="~/js/plugins/plugins.js"></script>
+    <!-- Active js -->
+    <script src="~/js/active.js"></script>
+</body>

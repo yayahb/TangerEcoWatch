@@ -1,0 +1,96 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>TangerEcoWatch - Help us keep our city clean</title>
+    <link rel="icon" href="img/core-img/favicon.ico">
+    <link rel="stylesheet" href="~/style.css">
+</head>
+
+<body>
+
+    <header class="header-area">
+        <div class="alazea-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <nav class="classy-navbar justify-content-between" id="alazeaNav">
+                        <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-brand"><img src="~/img/core-img/eco.png" alt=""></a>
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+                        <div class="classy-menu">
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+                            <div class="classynav">
+                                <ul>
+                                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                                    <li><a asp-area="" asp-controller="Home" asp-action="Privacy">About</a></li>
+                                    <li>
+                                        <a href="#">Reports</a>
+                                        <ul class="dropdown">
+                                            <li><a asp-area="" asp-controller="Reports" asp-action="Create">Report your issue</a></li>
+                                            <li><a asp-area="" asp-controller="Reports" asp-action="Index">Reports list</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Account</a>
+                                        <ul class="dropdown">
+                                            <li><a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Sign In</a></li>
+                                            <li><a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Log in</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div id="searchIcon">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="search-form">
+                        <form action="#" method="get">
+                            <input type="search" name="search" id="search" placeholder="Type keywords &amp; press enter...">
+                            <button type="submit" class="d-none"></button>
+                        </form>
+                        <div class="closeIcon"><i class="fa fa-times" aria-hidden="true"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="manage-account">
+                <h1>Manage your account</h1>
+                <div>
+                    <h2>Change your account settings</h2>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-3">
+                            <partial name="_ManageNav" />
+                        </div>
+                        <div class="col-md-9">
+                            @RenderBody()
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Your footer content here -->
+    </footer>
+
+    <script src="~/js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="~/js/bootstrap/popper.min.js"></script>
+    <script src="~/js/bootstrap/bootstrap.min.js"></script>
+    <script src="~/js/plugins/plugins.js"></script>
+    <script src="~/js/active.js"></script>
+</body>
+</html>

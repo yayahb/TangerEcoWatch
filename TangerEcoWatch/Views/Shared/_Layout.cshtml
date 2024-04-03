@@ -1,0 +1,257 @@
+﻿@using Microsoft.AspNetCore.Mvc.Rendering
+@using System.Security.Claims;
+@{
+    string var = "@";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags must come first in the head; any other head content must come after these tags -->
+    <!-- Title -->
+    <title>EcoWatch-Tangier</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+
+
+
+        <!-- ***** Navbar Area ***** -->
+        <div class="alazea-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="alazeaNav">
+
+                        <!-- Nav Brand -->
+                        <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-brand"><img src="~/img/bg-img/eco.png" alt=""></a>
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+                            <div class="classynav">
+                                <ul>
+                                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                                    <li><a asp-area="" asp-controller="Home" asp-action="Privacy">About</a></li>
+                                    <li>
+                                        <a href="#">Reports</a>
+                                        <ul class="dropdown">
+                                            <li><a asp-area="" asp-controller="Reports" asp-action="Create">Report your issue</a></li>
+                                            <li><a asp-area="" asp-controller="Reports" asp-action="Index">Reports list</a></li>
+                                            <li><a asp-area="" asp-controller="Feedbacks" asp-action="Create">Give your feedback</a></li>
+                                            <li><a asp-area="" asp-controller="Feedbacks" asp-action="Index">Feedbacks list</a></li>
+                                            <li><a asp-area="" asp-controller="Notifications" asp-action="Create">Send message</a></li>
+                                            <li><a asp-area="" asp-controller="Notifications" asp-action="Index">Your messages</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Clean Up events</a>
+                                        <ul class="dropdown">
+                                            <li><a asp-area="" asp-controller="CleanUpEvents" asp-action="Create">Participate now</a></li>
+                                            <li><a asp-area="" asp-controller="CleanUpEvents" asp-action="Index">All events</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            <a href="#">Hi @User.FindFirstValue(ClaimTypes.Name)</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="#">Account</a>
+                                            <ul class="dropdown">
+                                                <li><a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Sign in</a></li>
+                                                <li><a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Log in</a></li>
+                                            </ul>
+                                        }
+
+                                    </li>
+                                </ul>
+                                <div id="searchIcon">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="search-form">
+                        <form action="#" method="get">
+                            <input type="search" name="search" id="search" placeholder="Type keywords &amp; press enter...">
+                            <button type="submit" class="d-none"></button>
+                        </form>
+                        <div class="closeIcon"><i class="fa fa-times" aria-hidden="true"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+	<!-- #####     <div class="container"></div> ##### -->
+		<main role="main" class="pb-3">
+	@RenderBody()
+	@RenderSection("scripts", required: false)
+		</main>
+	
+
+
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area bg-img" style="background-image: url(img/bg-img/grass.jpg);">
+        <!-- Main Footer Area -->
+        <div class="main-footer-area">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="single-footer-widget">
+                            <div class="footer-logo mb-30">
+                                <a href="#"><img src="~/img/core-img/logo.png" alt=""></a>
+                            </div>
+                            <p>Lorem ipsum dolor sit samet, consectetur adipiscing elit. India situs atione mantor</p>
+                            <div class="social-info">
+                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Footer Widget
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="single-footer-widget">
+                            <div class="widget-title">
+                                <h5>QUICK LINK</h5>
+                            </div>
+                            <nav class="widget-nav">
+                                <ul>
+                                    <li><a href="#">Purchase</a></li>
+                                    <li><a href="#">FAQs</a></li>
+                                    <li><a href="#">Payment</a></li>
+                                    <li><a href="#">News</a></li>
+                                    <li><a href="#">Return</a></li>
+                                    <li><a href="#">Advertise</a></li>
+                                    <li><a href="#">Shipping</a></li>
+                                    <li><a href="#">Career</a></li>
+                                    <li><a href="#">Orders</a></li>
+                                    <li><a href="#">Policities</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>-->
+                    <!-- Single Footer Widget
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="single-footer-widget">
+                            <div class="widget-title">
+                                <h5>BEST SELLER</h5>
+                            </div>-->
+                    <!-- Single Best Seller Products
+                            <div class="single-best-seller-product d-flex align-items-center">
+                                <div class="product-thumbnail">
+                                    <a href="shop-details.html"><img src="img/bg-img/4.jpg" alt=""></a>
+                                </div>
+                                <div class="product-info">
+                                    <a href="shop-details.html">Cactus Flower</a>
+                                    <p>$10.99</p>
+                        </div>
+                    </div>-->
+                    <!-- Single Best Seller Products
+                            <div class="single-best-seller-product d-flex align-items-center">
+                                <div class="product-thumbnail">
+                                    <a href="shop-details.html"><img src="~/img/bg-img/5.jpg" alt=""></a>
+                                </div>
+                                <div class="product-info">
+                                    <a href="shop-details.html">Tulip Flower</a>
+                                    <p>$11.99</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="single-footer-widget">
+                            <div class="widget-title">
+                                <h5>CONTACT</h5>
+                            </div>
+
+                            <div class="contact-information">
+                                <p><span>Address:</span> Tangier</p>
+                                <p><span>Phone:</span> +212 234 122 122</p>
+                                <p><span>Email:</span> tanger @var ecowatch.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom Area -->
+        <div class="footer-bottom-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="border-line"></div>
+                    </div>
+                    <!-- Copywrite Text -->
+                    <div class="col-12 col-md-6">
+                        <div class="copywrite-text">
+                            <p>
+                                &copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://emsi.ma/" target="_blank">EMSI Tanger</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Footer Nav -->
+                    <div class="col-12 col-md-6">
+                        <div class="footer-nav">
+                            <nav>
+                                <ul>
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">Service</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ##### Footer Area End ##### -->
+    <!-- ##### All Javascript Files ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="js/plugins/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+</body>
+
+</html>

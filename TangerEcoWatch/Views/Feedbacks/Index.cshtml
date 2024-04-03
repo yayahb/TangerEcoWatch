@@ -1,0 +1,84 @@
+﻿@model IEnumerable<TangerEcoWatch.Models.Feedback>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<!-- Favicon -->
+<link rel="icon" href="~/img/core-img/favicon.ico">
+
+<!-- Core Stylesheet -->
+<link rel="stylesheet" href="~/style.css">
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="preloader-circle"></div>
+        <div class="preloader-img">
+            <img src="~/img/core-img/leaf.png" alt="">
+        </div>
+    </div>
+
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area">
+        <!-- Top Breadcrumb Area -->
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image:url('@Url.Content("~/img/bg-img/clean.jpg")');">
+            <h2>LIST OF FEEDBACKS</h2>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Feedbacks</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Index</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Index</h1>
+
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UserId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Text)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SubmissionDate)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+        @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Text)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SubmissionDate)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.FeedbackId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.FeedbackId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.FeedbackId">Delete</a>
+                    </td>
+                </tr>
+        }
+            </tbody>
+        </table>
+    </div>
+</body>
